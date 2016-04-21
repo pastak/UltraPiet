@@ -42,7 +42,7 @@ RESOURCES     = qdarkstyle/style.qrc
 
 
 #if Use OpenGL
-LIBS += -lopengl32
+LDFLAGS = -framework Carbon -framework OpenGL -framework GLUT
 
 #for mobile
 #CONFIG += mobility

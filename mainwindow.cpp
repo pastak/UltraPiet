@@ -46,7 +46,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     });
     connect(ui->setinitialstackstatus,&QPushButton::clicked,[=](){ui->pietEditor->SetUpInitialStack(ui->stackTextEdit);});
 
-    auto TreeWidgetSelectItem = [=,this](QTreeWidgetItem* item,int n){
+    auto TreeWidgetSelectItem = [&,this](QTreeWidgetItem* item,int n){
         QString str = item->text(0);
         if(item->childCount() != 0) return;
         while(item->parent() != nullptr){str = item->parent()->text(0) + QDir::separator() + str ; item = item->parent();}
@@ -118,4 +118,3 @@ void MainWindow::MoveCurrentDirectrory(QString str){
     QDir::setCurrent(currentDir);
     UpdateTree();
 }
-
